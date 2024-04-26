@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UpdateteTask">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:padding="20dp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Update TAsk"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:fontFamily="@font/nunito_medium"
+                android:textColor="@color/blue"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:src="@drawable/uploadimg"
+                android:id="@+id/updateImage"
+                android:scaleType="fitXY"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/updateTitle"
+                android:background="@drawable/shape_rect01"
+                android:layout_marginTop="20dp"
+                android:padding="20dp"
+                android:hint="Title of the task"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/lavender"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:id="@+id/updateDescription"
+                android:background="@drawable/shape_rect01"
+                android:layout_marginTop="20dp"
+                android:padding="20dp"
+                android:hint="Description of the Task"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:textColor="@color/lavender" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/updateDeadline"
+                android:background="@drawable/shape_rect01"
+                android:layout_marginTop="20dp"
+                android:padding="20dp"
+                android:hint="deadline of the the task"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/lavender"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Update"
+                android:textColor="@color/white"
+                android:id="@+id/updateButton"
+                android:textSize="18sp"
+                android:background="@color/blue"
+                android:layout_marginTop="20dp"
+                app:cornerRadius = "20dp"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
