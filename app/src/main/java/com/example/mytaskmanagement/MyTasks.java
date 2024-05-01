@@ -65,14 +65,14 @@ public class MyTasks extends AppCompatActivity implements NavigationView.OnNavig
                     Toast.makeText(MyTasks.this,"Home for bottom_nav",Toast.LENGTH_SHORT).show();
                     openFragment(new ListdesTasksFragment());
                     return true;
-                } else if (itemed == R.id.myFavs) {
-                    Toast.makeText(MyTasks.this,"Favorite for bottom_nav",Toast.LENGTH_SHORT).show();
+                } else if (itemed == R.id.home_contact) {
+                    openFragment(new ListofContacts());
                     return true;
-                } else if (itemed == R.id.add) {
-                    Toast.makeText(MyTasks.this,"Add for bottom_nav",Toast.LENGTH_SHORT).show();
+                } else if (itemed == R.id.setting) {
+                    openFragment(new SettingFragment());
                     return true;
-                } else if (itemed == R.id.message) {
-                    Toast.makeText(MyTasks.this,"Message for bottom_nav",Toast.LENGTH_SHORT).show();
+                } else if (itemed == R.id.profile_user) {
+                    openFragment(new ProfileUser());
                     return true;
                 }
                 return false;
@@ -94,18 +94,24 @@ public class MyTasks extends AppCompatActivity implements NavigationView.OnNavig
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int itemed = item.getItemId();
-        if(itemed == R.id.nav_home){
-            Toast.makeText(this,"Home for nav_header",Toast.LENGTH_SHORT).show();
+        if(itemed == R.id.add_contact){
+            openFragment(new AddContact());
 
-        } else if (itemed == R.id.nav_setting) {
-            Toast.makeText(this,"Setting for nav_header",Toast.LENGTH_SHORT).show();
+            fab.setVisibility(View.GONE);
+        } else if (itemed == R.id.completedtasks) {
+            openFragment(new MyCompletedtasksFragment());
 
-        } else if (itemed == R.id.nav_share) {
-            Toast.makeText(this,"Share for nav_header",Toast.LENGTH_SHORT).show();
+        } else if (itemed == R.id.favorisContact) {
+            openFragment(new FavorisContact());
 
         } else if (itemed == R.id.nav_about) {
             Toast.makeText(this,"About for nav_header",Toast.LENGTH_SHORT).show();
 
+        } else if (itemed == R.id.logout) {
+            Toast.makeText(this,"logout",Toast.LENGTH_SHORT).show();
+            mAuth.signOut();
+            Intent intent = new Intent(MyTasks.this, LoginActivity.class);
+            startActivity(intent);
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

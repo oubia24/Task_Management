@@ -1,7 +1,5 @@
 package com.example.mytaskmanagement;
 
-import android.app.AlertDialog;
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,8 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -31,35 +27,33 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class ListdesTasksFragment extends Fragment{
+public class MyCompletedtasksFragment extends Fragment {
 
-    private List<DataTasks> listTasks;
-    private RecyclerView taskRecyclerView;
+    private List<DataTasks> tasksList;
+    private RecyclerView completedRecyclerView;
     private MyAdapter adapter;
     FirebaseAuth mAuth;
     FirebaseFirestore db;
-    SearchView taskSearch;
+    SearchView completedTaskSearch;
 
 
-    public ListdesTasksFragment() {
-
+    public MyCompletedtasksFragment() {
+        // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        View rootview = inflater.inflate(R.layout.fragment_listdes_tasks, container, false);
-
-        taskRecyclerView = rootview.findViewById(R.id.taskRecyclerView);
-        listTasks = new LinkedList<DataTasks>();
-        db = FirebaseFirestore.getInstance();
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_my_completedtasks, container, false);
+        completedRecyclerView = view.findViewById(R.id.completedRecyclerView);
         mAuth = FirebaseAuth.getInstance();
-        taskSearch = rootview.findViewById(R.id.task_search);
-        taskSearch.clearFocus();
+        db = FirebaseFirestore.getInstance();
+        tasksList = new LinkedList<DataTasks>();
+        completedTaskSearch = view.findViewById(R.id.completedTask_search);
+        completedTaskSearch.clearFocus();
 
-        taskSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        completedTaskSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return false;
@@ -67,30 +61,32 @@ public class ListdesTasksFragment extends Fragment{
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                searchtask(newText);
+                searchCompletedTask(newText);
                 return false;
             }
         });
-        getTasks();
 
-        return rootview;
+        getcompltedTask();
+
+
+        return view;
+
     }
 
-    private void searchtask(String text) {
-        ArrayList<DataTasks> searchTask= new ArrayList<>();
-        for (DataTasks datatsk : listTasks){
-            if(datatsk.getDataTitle().toLowerCase().contains(text)){
-                searchTask.add(datatsk);
+    private void searchCompletedTask(String text) {
+        ArrayList<DataTasks> searchCompleted = new ArrayList<>();
+
+        for (DataTasks datask : tasksList){
+            if ((datask.getDataTitle().toLowerCase().contains(text))){
+                searchCompleted.add(datask);
             }
         }
-        adapter.searchDatalist(searchTask);
-
+        adapter.searchDatalist(searchCompleted);
     }
 
-    private void getTasks() {
+    private void getcompltedTask() {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         DocumentReference docRef = db.collection("User").document(currentUser.getEmail());
-
         android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getContext());
         builder.setCancelable(false);
         builder.setView(R.layout.progress_layout);
@@ -102,29 +98,24 @@ public class ListdesTasksFragment extends Fragment{
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()){
-                            for (QueryDocumentSnapshot document: task.getResult()){
-                                DataTasks tsk = new DataTasks(document.get("title").toString(),document.get("description").toString(),document.get("deadline").toString(),document.get("image").toString(),document.get("owner").toString(),(Boolean) document.get("done"));
-                                listTasks.add(tsk);
+                            for (QueryDocumentSnapshot document : task.getResult()){
+                                if ((Boolean) document.get("done") == true){
+                                    DataTasks tsk = new DataTasks(document.get("title").toString(),document.get("description").toString(),document.get("deadline").toString(),document.get("image").toString(),document.get("owner").toString(),(Boolean) document.get("done"));
+                                    tasksList.add(tsk);
+                                }
                             }
-                            taskRecyclerView.setHasFixedSize(true);
+
+                            completedRecyclerView.setHasFixedSize(false);
                             LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-                            taskRecyclerView.setLayoutManager(layoutManager);
-
-                            adapter = new MyAdapter(getActivity(),listTasks);
-                            taskRecyclerView.setAdapter(adapter);
-                            adapter.notifyDataSetChanged();
-
-
-                        }else {
+                            completedRecyclerView.setLayoutManager(layoutManager);
+                            adapter = new MyAdapter(getActivity(),tasksList);
+                            completedRecyclerView.setAdapter(adapter);
+                        }
+                        else {
                             Log.d("not ok", "Error getting documents: ", task.getException());
                         }
                         dialog.dismiss();
                     }
                 });
-
-    }
-    @Override
-    public void onStart() {
-        super.onStart();
     }
 }

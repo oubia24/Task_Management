@@ -146,7 +146,7 @@ public class UpdateteTask extends AppCompatActivity {
         String editDeadline = updateDeadline.getText().toString();
 
         db.collection("User").document(mAuth.getCurrentUser().getEmail()).collection("Tasks").document(updateTitle.getText().toString())
-                .update("title",editTitle,"description",editDescription,"deadline",editDeadline)
+                .update("title",editTitle,"description",editDescription,"deadline",editDeadline,"image",imageUrl)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

@@ -14,4 +14,5 @@
     <color name="lavender">#8692f7</color>
     <color name="red">#c70000</color>
     <color name="green">#00ff00</color>
+    <color name="headerTextColor">#ECE3E3</color>
 </resources>

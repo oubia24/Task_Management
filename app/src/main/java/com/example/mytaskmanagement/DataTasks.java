@@ -7,13 +7,23 @@ public class DataTasks {
     private String dataDeadline;
     private String dataImage;
     private String owner;
+    private Boolean done;
 
-    public DataTasks(String dataTitle, String dataDesc, String dataDeadline, String dataImage,String owner) {
+    public DataTasks(String dataTitle, String dataDesc, String dataDeadline, String dataImage,String owner,Boolean done) {
         this.dataTitle = dataTitle;
         this.dataDesc = dataDesc;
         this.dataDeadline = dataDeadline;
         this.dataImage = dataImage;
         this.owner = owner;
+        this.done = done;
+    }
+
+    public Boolean getDone() {
+        return done;
+    }
+
+    public void setDone(Boolean done) {
+        this.done = done;
     }
 
     public String getOwner() {

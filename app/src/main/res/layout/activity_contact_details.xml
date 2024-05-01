@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/blue"
+    android:id="@+id/mainContener"
+    tools:context=".Contact_Details">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <com.github.clans.fab.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/favorirt"
+            android:src="@drawable/round_favorite_border_24"
+            app:fab_showShadow="true"
+            android:layout_alignParentEnd="true"
+            app:fab_colorNormal="@color/white"
+            app:fab_colorPressed="@color/blue"
+            app:fab_size="mini"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            />
+    </RelativeLayout>
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/detailImage"
+        android:src="@drawable/noprofile"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="-30dp"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/roundedImageViewRounded"/>
+    <TextView
+        android:id="@+id/detailUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="UserName"
+        android:layout_gravity="center"
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
+    
+    <TextView
+        android:id="@+id/detailTelephone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Telephone"
+        android:layout_marginTop="-20dp"
+        android:layout_marginStart="10dp"
+        android:padding="20dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"/>
+    
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:layout_marginBottom="-35dp"
+        android:layout_marginHorizontal="50dp"
+        android:background="@drawable/roundedback">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/returnhome"
+                android:src="@drawable/round_arrow_back_24"
+                android:background="@drawable/arrowback"
+                android:layout_gravity="start"
+                android:layout_marginStart="10dp"
+                android:backgroundTint="@color/back"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/roundedImageViewRounded"/>
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Back to home"
+                android:textColor="@color/blue"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+    </FrameLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/detaildivider"
+        android:paddingTop="50dp"
+        android:paddingHorizontal="30dp">
+        
+        <LinearLayout
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="25dp">
+                
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/round_email_24"
+                    app:shapeAppearanceOverlay="@style/roundedImageViewRounded"/>
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/detailEmail"
+                    android:text="exemple@gmail.com"
+                    android:textStyle="bold"
+                    android:textColor="@color/blue"
+                    android:paddingLeft="18dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                android:paddingLeft="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/round_description_24"
+
+                    app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
+                <TextView
+                    android:id="@+id/detailDescription"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/blue"
+                    android:text="Description"/>
+            </LinearLayout>
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <com.github.clans.fab.FloatingActionMenu
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                app:menu_fab_size="mini"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
+                app:menu_colorPressed="@color/blue"
+                app:menu_colorNormal="@color/blue"
+                app:menu_icon="@drawable/baseline_format_list_bulleted_24"
+                app:menu_openDirection="up"
+                app:menu_showShadow="true">
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/phone_call"
+                    android:src="@drawable/round_local_phone_24"
+                    app:fab_showShadow="true"
+                    app:fab_colorNormal="@color/white"
+                    app:fab_colorPressed="@color/blue"
+                    app:fab_size="mini"
+                    />
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/deleteButton"
+                    android:src="@drawable/baseline_delete_24"
+                    app:fab_showShadow="true"
+                    app:fab_colorNormal="@color/red"
+                    app:fab_size="mini"
+                    />
+            </com.github.clans.fab.FloatingActionMenu>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

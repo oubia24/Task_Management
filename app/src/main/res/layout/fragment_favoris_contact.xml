@@ -3,17 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListdesTasksFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".FavorisContact">
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.appcompat.widget.SearchView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/search_favoris"
         android:layout_marginTop="60dp"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp"
-        android:id="@+id/task_search"
         app:iconifiedByDefault="false"
         app:searchHintIcon="@null"
         app:queryHint="Search......."
@@ -23,13 +23,12 @@
         android:background="@drawable/border"
         />
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="107dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/taskRecyclerView"
+        android:id="@+id/favorisRecycler"
         android:layout_marginBottom="60dp"
         android:scrollbars="vertical"
-        android:layout_below="@id/task_search"
+        android:layout_marginTop="107dp"
+        android:layout_below="@id/search_favoris"
         />
-
 </FrameLayout>

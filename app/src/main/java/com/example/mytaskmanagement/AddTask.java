@@ -130,6 +130,7 @@ public class AddTask extends AppCompatActivity {
         user.put("deadline", uploadDeadline);
         user.put("image", imageUri);
         user.put("owner",mAuth.getCurrentUser().getEmail());
+        user.put("done",false);
 
         db.collection("User").document(FirebaseAuth.getInstance().getCurrentUser().getEmail()).collection("Tasks").document(uploadTitle)
                 .set(user)

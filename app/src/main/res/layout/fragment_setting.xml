@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SettingFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="30dp">
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Setting"
+            android:textSize="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            style="@style/viewParent.headerText" />
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/profileCircleImageView"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/noprofile"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="10dp"/>
+            <TextView
+                android:id="@+id/userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UserName "
+                android:textSize="18dp"
+                android:layout_marginTop="20dp"
+                style="@style/viewParent.headerText"
+                android:layout_toRightOf="@id/profileCircleImageView"
+                />
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit Personal detail"
+                android:textSize="16dp"
+                android:textColor="#5D5C5C"
+                android:layout_toRightOf="@+id/profileCircleImageView"
+                android:layout_below="@+id/userName"
+                />
+            <ImageView
+                style="@style/viewParent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_more"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile"
+            style="@style/viewParent.headerText.settingsMiniTitle"/>
+        <TextView
+            android:id="@+id/EditProfile"
+            android:text="Edit profile"
+            android:drawableLeft="@drawable/ic_edit_profile"
+            style="@style/viewParent.headerText.settingsTextIcon"/>
+
+        <TextView
+            android:id="@+id/EditPassword"
+            android:text="Edit Password"
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:drawableLeft="@drawable/ic_edit_password"
+            />
+
+        <TextView
+            android:text="Notification"
+            style="@style/viewParent.headerText.settingsMiniTitle"/>
+
+        <Switch
+            style="@style/settingsText"
+            android:drawableLeft="@drawable/ic_notifications"
+            android:checked="true"
+            android:text="notification"/>
+
+        <TextView
+            android:text="Regional"
+            style="@style/viewParent.headerText.settingsMiniTitle"/>
+
+        <TextView
+            android:drawableLeft="@drawable/ic_languages"
+            android:text="Language"
+            style="@style/viewParent.headerText.settingsTextIcon"/>
+        <TextView
+            android:id="@+id/logout_setting"
+            android:text="Logout"
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:drawableLeft="@drawable/ic_logout"
+            />
+    </LinearLayout>
+</FrameLayout>
